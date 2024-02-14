@@ -1,0 +1,46 @@
+#include<iostream>
+#include<climits>
+using namespace std;
+
+int largestRowSum(int arr[][4],int row,int col){
+    int maxi=INT_MIN;
+    int rowIndex =-1;
+    for (int row =0;row<3;row++){
+        int Sum=0;
+        for(int col=0;col<4;col++){
+            Sum+=arr[row][col];
+            }
+            if(Sum>maxi){
+                maxi=Sum;
+                rowIndex=row;
+                
+            }
+    }
+    cout<<"The Maximum Sum of Row is ..."<< maxi<<endl;
+    return rowIndex;
+    
+}
+
+int main(){
+
+    int arr[3][4];
+    for (int i=0;i<3;i++){
+        for(int j=0;j<4;j++){
+            cin>>arr[i][j];
+        }
+    }
+    //print 
+    for (int i=0;i<3;i++){
+        for(int j=0;j<4;j++){
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+
+
+
+    }
+    int Result=largestRowSum(arr,3,4);
+    cout<<"Max row is at index"<<Result<<endl;
+
+    return 0;
+}
